@@ -1,13 +1,97 @@
+@import-normalize;
+
+html,
 body {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #18191b;
+  color: #f4f5f6;
+  font-weight: normal;
+  font-kerning: normal;
+  line-height: 1.5;
+  font-size: 16px;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body,
+button,
+input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+main {
+  padding: 0.75rem 0.5rem 4rem;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+h1#title {
+  font-size: 1.25rem;
+  font-weight: 300;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #555;
+}
+p#text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+button {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.025rem;
+  padding: 0.25rem 0.875rem;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  color: #ddd;
+  outline: none;
+  user-select: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  opacity: 0.95;
+}
+button:hover,
+button:focus {
+  text-decoration: none;
+  border-color: #f4f5f6;
+  color: #f4f5f6;
+  opacity: 1;
+}
+input {
+  flex: 1 1 auto;
+  display: block;
+  padding: 0.25rem 0.5rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.375rem;
+  outline: none;
+  width: 100%;
+  margin: 0 0.375rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+input:hover,
+input:focus {
+  border-color: #f4f5f6;
+  opacity: 1;
+}
+input::placeholder {
+  color: #333;
+  font-weight: 500;
+}
+.error {
+  border-color: #e82110;
 }
