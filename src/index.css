@@ -13,6 +13,11 @@ body {
   line-height: 1.5;
   font-size: 16px;
 }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 body,
 button,
 input {
@@ -31,12 +36,6 @@ h1#title {
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid #555;
-}
-p#text {
-  white-space: pre-wrap;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 form {
   display: flex;
@@ -92,6 +91,56 @@ input::placeholder {
   color: #333;
   font-weight: 500;
 }
-.error {
+input.error {
   border-color: #e82110;
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1rem;
+}
+h6 {
+  font-size: 0.875rem;
+}
+a {
+  color: hsl(210, 96%, 64%);
+}
+li p {
+  margin: 0 0 0.125rem;
+}
+table {
+  border-collapse: collapse;
+  margin: 3rem 0;
+}
+td,
+th {
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+}
+th {
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.64);
+}
+td {
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.32);
+}
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+th:last-child,
+td:last-child {
+  padding-right: 0;
 }
