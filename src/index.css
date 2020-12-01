@@ -116,7 +116,12 @@ h6 {
   font-size: 0.875rem;
 }
 a {
-  color: hsl(210, 96%, 64%);
+  color: hsl(208, 96%, 70%);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
 }
 li p {
   margin: 0 0 0.125rem;
@@ -143,4 +148,9 @@ td:first-child {
 th:last-child,
 td:last-child {
   padding-right: 0;
+}
+
+/* extras */
+.mw-editsection {
+  display: none;
 }
