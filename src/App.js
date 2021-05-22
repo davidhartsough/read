@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const urlPattern = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/;
+const urlPattern =
+  /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/;
 const elementsToRemove = [
   "script",
   "style",
@@ -113,7 +114,7 @@ const goodElements = [
 ];
 
 let initialUrl = "";
-const potentialUrl = window.location.pathname.slice(6);
+const potentialUrl = window.location.hash.slice(1);
 if (potentialUrl && urlPattern.test(potentialUrl)) {
   initialUrl = potentialUrl;
 }
@@ -163,6 +164,7 @@ export default function App() {
       [newHtml] = body.getElementsByTagName("article");
     }
     setHtml(newHtml.innerHTML);
+    window.location.hash = url;
   }
   async function read() {
     setTitle("Loading ...");
