@@ -112,10 +112,17 @@ const goodElements = [
   "template",
 ];
 
+let initialUrl = "";
+const potentialUrl = window.location.pathname.slice(6);
+if (potentialUrl && urlPattern.test(potentialUrl)) {
+  initialUrl = potentialUrl;
+}
+
 export default function App() {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(initialUrl);
   const [html, setHtml] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [showCorsLink, setShowCorsLink] = useState(false);
   const [title, setTitle] = useState("");
   const [inputError, setInputError] = useState(false);
   function handleChange({ target: { value } }) {
@@ -159,6 +166,7 @@ export default function App() {
   }
   async function read() {
     setTitle("Loading ...");
+    setShowCorsLink(false);
     setErrorMessage(null);
     setHtml(null);
     try {
@@ -181,12 +189,17 @@ export default function App() {
         console.log(errorResponse);
         setTitle("Uh oh. Bummer. Can't get the text from that web page.");
         setErrorMessage("Are you sure the URL is correct?");
+        setShowCorsLink(true);
       }
     }
   }
   function handleSubmit(e) {
     e.preventDefault();
-    if (!inputError) read();
+    if (url) {
+      if (!inputError) read();
+    } else {
+      setInputError(true);
+    }
   }
   const createMarkup = () => ({ __html: html });
   return (
@@ -205,6 +218,20 @@ export default function App() {
       </form>
       {title.length > 0 && <h1 id="title">{title}</h1>}
       {errorMessage && <p>{errorMessage}</p>}
+      {showCorsLink && (
+        <p>
+          <span>If so, then </span>
+          <a
+            href="https://cors-anywhere.herokuapp.com/corsdemo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            go here and click the button to &quot;Request temporary access to
+            the demo server&quot;.
+          </a>
+          <span> Then try again!</span>
+        </p>
+      )}
       {/* eslint-disable-next-line react/no-danger */}
       <article dangerouslySetInnerHTML={createMarkup()} />
     </>
